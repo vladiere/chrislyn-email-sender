@@ -1,5 +1,5 @@
 [package]
-name = "email-backend-worker"
+name = "my_worker"
 version = "0.1.0"
 edition = "2021"
 

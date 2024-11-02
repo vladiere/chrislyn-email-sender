@@ -7,7 +7,7 @@ EMAIL_PORT="465"
 EMAIL_USER="kazhu.korvi@gmail.com"
 EMAIL_PASS="sqkirhhcfvlvmmvz"
 
-WEB_FOLDER="web-folder/"
+WEB_FOLDER="./web-folder/"
 
 # Server host and port
 SERVER_HOST="127.0.0.1"

@@ -452,26 +452,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "email-backend-worker"
-version = "0.1.0"
-dependencies = [
- "axum",
- "derive_more",
- "mail-send",
- "serde",
- "serde_json",
- "serde_with",
- "strum_macros",
- "time",
- "time-tz",
- "tokio",
- "tower-http",
- "tracing",
- "tracing-subscriber",
- "uuid",
-]
-
-[[package]]
 name = "encoding_rs"
 version = "0.8.35"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1102,6 +1082,26 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "my_worker"
+version = "0.1.0"
+dependencies = [
+ "axum",
+ "derive_more",
+ "mail-send",
+ "serde",
+ "serde_json",
+ "serde_with",
+ "strum_macros",
+ "time",
+ "time-tz",
+ "tokio",
+ "tower-http",
+ "tracing",
+ "tracing-subscriber",
+ "uuid",
 ]
 
 [[package]]

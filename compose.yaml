@@ -10,7 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   server:
-    image: email-sender/chrislyn-email-sender
+    image: my_worker
     container_name: email-sender
     build:
       context: .

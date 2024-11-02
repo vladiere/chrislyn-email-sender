@@ -3,10 +3,12 @@ use axum::http::StatusCode;
 use axum::routing::{any_service, MethodRouter};
 use tower_http::services::ServeDir;
 
+use crate::core_config;
+
 // Note: Here we can just return a MethodRouter rather than a full Router
 //       since ServeDir is a service.
 pub fn serve_dir() -> MethodRouter {
-    let web_folder = std::env::var("WEB_FOLDER").expect("WEB_FOLDER is not set");
+    let web_folder = &core_config().WEB_FOLDER;
     async fn handle_404() -> (StatusCode, &'static str) {
         (StatusCode::NOT_FOUND, "Resource not found.")
     }

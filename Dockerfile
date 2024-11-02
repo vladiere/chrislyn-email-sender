@@ -8,7 +8,7 @@ RUN apt update && apt install -y musl-tools musl-dev
 RUN update-ca-certificates
 
 # Create appuser
-ENV USER=dev_only
+ENV USER=my_worker
 ENV UID=10001
 
 RUN adduser \
@@ -21,27 +21,28 @@ RUN adduser \
     "${USER}"
 
 
-WORKDIR /app
+WORKDIR /my_worker
 
-COPY ./ .
+COPY ./my_worker .
 
 RUN cargo build --target x86_64-unknown-linux-musl --release
 
 ####################################################################################################
 ## Final image
 ####################################################################################################
-FROM scratch
+FROM alpine
 
 # Import from builder.
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
 
-WORKDIR /app
+WORKDIR /my_worker
 
 # Copy our build
-COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/app ./
+COPY --from=builder /my_worker/target/x86_64-unknown-linux-musl/release/my_worker ./
 
 # Use an unprivileged user.
-USER app:app
+USER my_worker:my_worker
 
-CMD ["/app/app"]
+CMD ["/my_worker/my_worker"]
+

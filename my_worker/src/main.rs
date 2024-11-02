@@ -1,5 +1,5 @@
 use axum::{routing::get, Router};
-use email_backend_worker::{core_config, email, error::Result, routes_static};
+use my_worker::{core_config, email, error::Result, routes_static};
 use tracing::info;
 use tracing_subscriber::EnvFilter;
 
