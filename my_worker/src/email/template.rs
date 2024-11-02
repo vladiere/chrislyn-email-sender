@@ -34,8 +34,9 @@ pub struct MajorExam {
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct EmailTemplateParams {
+    pub id_number: i64,
     pub email_to: String,
-    pub term: String,
+    pub exam_phase: String,
     pub to_name: String,
     pub section_code: String,
     pub course_code: String,
@@ -94,11 +95,11 @@ pub fn template(params: EmailTemplateParams) -> String {
     <body>
 
     <div class="container">
-        <p>Good day, {to_name},</p>
+        <p>Good day, {to_name} #{id_number},</p>
 
         <p>Course Code - {course_code}</p>
         <p>Section - {section_code}</p>
-        <h2>Average {term_name} grade: {avg_grade}</h2>
+        <h2>Average {exam_phase} grade: {avg_grade}</h2>
 
         <div class="grade-item">Series of Scores:</div>
         <div class="grade-item">Quiz - <strong>{quiz_score}/{quiz_total}</strong></div>
@@ -117,7 +118,8 @@ pub fn template(params: EmailTemplateParams) -> String {
     </body>
     </html>
     "#,
-        term_name = params.term,
+        id_number = params.id_number,
+        exam_phase = params.exam_phase,
         avg_grade = params.avg_grade,
         to_name = params.to_name,
         course_code = params.course_code,

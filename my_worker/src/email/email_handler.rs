@@ -8,7 +8,7 @@ use super::error::Result;
 pub async fn send_email_route(
     Json(payload): Json<EmailTemplateParams>,
 ) -> Result<Json<Value>>{
-    info!("{:<12} - {}", "ROUTE", "send_email_route");
+    info!("{:<20} - {:?}", "ROUTE HANDLER", "send_email_route");
     
     let _ = worker::send_email(payload.clone()).await;
 

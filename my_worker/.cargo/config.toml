@@ -1,6 +1,6 @@
 [env]
 # Scope down tracing, to filter out external lib tracing.
-RUST_LOG="email_backend_worker=debug"
+RUST_LOG="my_worker=debug"
 
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_PORT="465"

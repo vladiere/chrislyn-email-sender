@@ -18,7 +18,7 @@ async fn main() -> Result<()> {
 
     let listener = tokio::net::TcpListener::bind(format!("{}:{}", &core_config().SERVER_HOST, &core_config().SERVER_PORT)).await.unwrap();
     
-    info!("{:<12} - {:?}\n", "LISTENING", listener.local_addr());
+    info!("{:<20} - {:?}\n", "LISTENING", listener.local_addr());
 
     axum::serve(listener, routes_all.into_make_service()).await.unwrap();
 

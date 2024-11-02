@@ -14,8 +14,9 @@ mod test {
         use crate::email::EmailTemplateParams;
 
         let email_params = EmailTemplateParams {
+            id_number: 2002080800,
             email_to: "feyonaj308@ruhtan.com".to_string(),
-            term: "Midterm".to_string(),
+            exam_phase: "Midterm".to_string(),
             to_name: "John Doe".to_string(),
             course_code: "BSIT".to_string(),
             section_code: "1C".to_string(),
