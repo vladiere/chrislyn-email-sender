@@ -2,10 +2,15 @@
 # Scope down tracing, to filter out external lib tracing.
 RUST_LOG="my_worker=debug"
 
-EMAIL_HOST="smtp.gmail.com"
-EMAIL_PORT="465"
-EMAIL_USER="kazhu.korvi@gmail.com"
-EMAIL_PASS="sqkirhhcfvlvmmvz"
+# Email credentials for FROM compose
+EMAIL_FROM="chrislynmarie2000@gmail.com"
+EMAIL_FROM_NAME="Ms. C. Dano"
+
+# SMTP credentials
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT="587"
+SMTP_USER="dev.castlebyte@gmail.com"
+SMTP_PASS="aowxokaxsnbfuxmw"
 
 WEB_FOLDER="./web-folder/"
 

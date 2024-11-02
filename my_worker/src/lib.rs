@@ -28,6 +28,6 @@ mod test {
             major_exam: crate::email::MajorExam { score: 100.0, total: 150.0 },
         };
 
-        send_email(email_params).await;
+        let _ = send_email(email_params).await;
     }
 }

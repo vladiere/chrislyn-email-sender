@@ -13,6 +13,8 @@ pub type Result<T> = core::result::Result<T, Error>;
 #[serde(tag = "type", content = "data")]
 pub enum Error {
     SomethingWentWrong,
+    SendingEmailFailed(String),
+    SMTPServerConnectFailed(String),
 
     // -- External Modules
     #[from]
