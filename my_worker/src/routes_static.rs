@@ -8,7 +8,7 @@ use crate::core_config;
 // Note: Here we can just return a MethodRouter rather than a full Router
 //       since ServeDir is a service.
 pub fn serve_dir() -> MethodRouter {
-    let web_folder = &core_config().WEB_FOLDER;
+    let web_folder = &core_config().SERVICE_WEB_FOLDER;
     async fn handle_404() -> (StatusCode, &'static str) {
         (StatusCode::NOT_FOUND, "Resource not found.")
     }

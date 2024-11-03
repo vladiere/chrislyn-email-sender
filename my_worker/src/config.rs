@@ -11,7 +11,7 @@ pub fn core_config() -> &'static CoreConfig {
 
 #[allow(non_snake_case)]
 pub struct CoreConfig {
-    pub WEB_FOLDER: String,
+    pub SERVICE_WEB_FOLDER: String,
     pub SERVER_HOST: String,
     pub SERVER_PORT: String,
 }
@@ -19,7 +19,7 @@ pub struct CoreConfig {
 impl CoreConfig {
     fn load_from_env() -> super::error::Result<CoreConfig> {
         Ok(CoreConfig {
-            WEB_FOLDER: get_env("WEB_FOLDER")?,
+            SERVICE_WEB_FOLDER: get_env("SERVICE_WEB_FOLDER")?,
             SERVER_HOST: get_env("SERVER_HOST")?,
             SERVER_PORT: get_env("SERVER_PORT")?,
         })
