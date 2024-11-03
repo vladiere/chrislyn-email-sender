@@ -1,6 +1,7 @@
-use axum::{routing::get, Router};
+use axum::{routing::get, Json, Router};
 use my_worker::{core_config, email, error::Result, routes_static};
 use tracing::info;
+use serde_json::{json, Value};
 use tracing_subscriber::EnvFilter;
 
 #[tokio::main]
@@ -12,7 +13,7 @@ async fn main() -> Result<()> {
         .init();
 
     let routes_all = Router::new()
-        .route("/", get(|| async { "Hello world" }))
+        .route("/", get(greetings))
         .merge(email::routes())
         .fallback_service(routes_static::serve_dir());
 
@@ -23,4 +24,13 @@ async fn main() -> Result<()> {
     axum::serve(listener, routes_all.into_make_service()).await.unwrap();
 
     Ok(())
+}
+
+async fn greetings() -> Json<Value> {
+    info!("{:<20} - {:?}\n", "ROUTE TESTING", "greetings");
+
+    Json(json!({
+        "SUCCESS": true,
+        "MESSAGE": "Hello world"
+    }))
 }

@@ -5,7 +5,7 @@ pub fn core_config() -> &'static CoreConfig {
 
     INSTANCE.get_or_init(|| {
         CoreConfig::load_from_env()
-            .unwrap_or_else(|ex| panic!("FATAL - WHILE LOADING CONF cause: {ex:?}"))
+            .unwrap_or_else(|ex| panic!("FATAL - WHILE LOADING CORE CONF cause: {ex:?}"))
     })
 }
 

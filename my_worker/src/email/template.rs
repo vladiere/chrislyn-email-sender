@@ -95,6 +95,7 @@ pub fn template(params: EmailTemplateParams) -> String {
     <body>
 
     <div class="container">
+        <img src="https://chrislyn-email-sender.onrender.com/cpc-logo.png" alt="cpc-logo" height="100px" width="100px" />
         <p>Good day, {to_name} #{id_number},</p>
 
         <p>Course Code - {course_code}</p>

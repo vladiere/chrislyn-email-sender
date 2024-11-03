@@ -5,7 +5,7 @@ pub fn email_config() -> &'static EmailConfig {
 
     INSTANCE.get_or_init(|| {
         EmailConfig::load_from_env()
-            .unwrap_or_else(|ex| panic!("FATAL - WHILE LOADING CONF cause: {ex:?}"))
+            .unwrap_or_else(|ex| panic!("FATAL - WHILE LOADING EMAIL CONF cause: {ex:?}"))
     })
 }
 
