@@ -36,6 +36,7 @@ pub async fn send_email_route(
 pub async fn send_vec_email_route(
     Json(payload): Json<Vec<EmailTemplateParams>>,
 ) -> Result<Json<Value>> {
+    info!("-----------------------------------------------------------------");
     info!("{:<20} - {:?}\n", "ROUTE HANDLER", "send_vec_email_route");
 
     // Create a vector of futures for sending emails

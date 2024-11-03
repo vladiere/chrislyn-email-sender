@@ -15,6 +15,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    deploy:
+      mode: replicated
+      replicas: 3
     environment:
       - RUST_LOG=info  # Optional: Set Rust log level
 
