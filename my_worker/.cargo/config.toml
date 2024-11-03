@@ -1,19 +1,41 @@
+# This is a Cargo configuration file.
+[build]
+# This section can specify build-related options.
+target = "x86_64-unknown-linux-gnu"  # Specify the target architecture.
+
+[profile.dev]
+# Development profile settings
+opt-level = 0  # No optimization in dev mode.
+
+[profile.release]
+# Release profile settings
+opt-level = 3  # Optimize for speed in release mode.
+lto = true  # Enable Link Time Optimization.
+
 [env]
-# Scope down tracing, to filter out external lib tracing.
-RUST_LOG="my_worker=debug"
+# Define environment variables to be set for all cargo commands.
+RUST_LOG = "my_worker=debug"
+EMAIL_FROM = "chrislynmarie2000@gmail.com"
+EMAIL_FROM_NAME = "Ms. C. Dano"
+SMTP_HOST = "smtp.gmail.com"
+SMTP_PORT = "587"
+SMTP_USER = "dev.castlebyte@gmail.com"
+SMTP_PASS = "aowxokaxsnbfuxmw"
+SERVER_HOST = "127.0.0.1"
+SERVER_PORT = "4000"
+SERVICE_WEB_FOLDER = "web-folder/"
 
-# Email credentials for FROM compose
-EMAIL_FROM="chrislynmarie2000@gmail.com"
-EMAIL_FROM_NAME="Ms. C. Dano"
+[package]
+# Default package settings
+name = "your_package_name"
+version = "0.1.0"
 
-# SMTP credentials
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT="587"
-SMTP_USER="dev.castlebyte@gmail.com"
-SMTP_PASS="aowxokaxsnbfuxmw"
+[profile]
+# General profile settings
+# Avoid specifying release here if you already have it above
+debug = { opt-level = 1 }
 
+[term]
+# Customize the terminal output
+color = "always"  # Force color output in the terminal.
 
-# Server host and port
-SERVER_HOST="127.0.0.1"
-SERVER_PORT="4000"
-SERVICE_WEB_FOLDER="web-folder/"
