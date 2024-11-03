@@ -21,9 +21,9 @@ RUN adduser \
     "${USER}"
 
 
-WORKDIR /my_worker
+WORKDIR /
 
-COPY ./my_worker .
+COPY ./ .
 
 RUN cargo build --target x86_64-unknown-linux-musl --release
 
@@ -36,7 +36,7 @@ FROM alpine
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /etc/group /etc/group
 
-WORKDIR /my_worker
+WORKDIR /
 
 # Copy our build
 COPY --from=builder /my_worker/target/x86_64-unknown-linux-musl/release/my_worker ./

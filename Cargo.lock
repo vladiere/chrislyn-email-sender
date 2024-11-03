@@ -1128,7 +1128,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "my_worker"
+name = "my-worker"
 version = "0.1.0"
 dependencies = [
  "axum",
