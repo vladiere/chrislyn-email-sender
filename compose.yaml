@@ -10,8 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   server:
-    image: my_worker
-    container_name: email-sender
+    image: my-worker:lastest
     build:
       context: .
       dockerfile: Dockerfile
