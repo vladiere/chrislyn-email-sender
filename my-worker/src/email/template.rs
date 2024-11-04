@@ -95,7 +95,6 @@ pub fn template(params: EmailTemplateParams) -> String {
     <body>
 
     <div class="container">
-        <img src="https://chrislyn-email-sender.onrender.com/cpc-logo.png" alt="cpc-logo" height="100px" width="100px" />
         <p>Good day, {to_name} #{id_number},</p>
 
         <p>Course Code - {course_code}</p>
@@ -103,11 +102,11 @@ pub fn template(params: EmailTemplateParams) -> String {
         <h2>Average {exam_phase} grade: {avg_grade}</h2>
 
         <div class="grade-item">Series of Scores:</div>
-        <div class="grade-item">Quiz - <strong>{quiz_score}/{quiz_total}</strong></div>
-        <div class="grade-item">Assignment - <strong>{assignment_score}/{assignment_total}</strong></div>
-        <div class="grade-item">Attendance - <strong>{attendance_score}/{attendance_total}</strong></div>
-        <div class="grade-item">Activities - <strong>{activities_score}/{activities_total}</strong></div>
-        <div class="grade-item">Major Exam - <strong>{exam_score}/{exam_total}</strong></div>
+        <div class="grade-item">Quiz - <strong>{quiz_total}/{quiz_score}</strong></div>
+        <div class="grade-item">Assignment - <strong>{assignment_total}/{assignment_score}</strong></div>
+        <div class="grade-item">Attendance - <strong>{attendance_total}/{attendance_score}</strong></div>
+        <div class="grade-item">Activities - <strong>{activities_total}/{activities_score}</strong></div>
+        <div class="grade-item">Major Exam - <strong>{exam_total}/{exam_score}</strong></div>
 
         <div class="footer">
             Best wishes,<br />
