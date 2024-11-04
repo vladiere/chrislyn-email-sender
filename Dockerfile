@@ -21,9 +21,9 @@ RUN adduser \
     "${USER}"
 
 
-WORKDIR /
+WORKDIR /my-worker
 
-COPY ./ .
+COPY ./my-worker .
 
 RUN cargo build --target x86_64-unknown-linux-musl --release
 
@@ -39,10 +39,10 @@ COPY --from=builder /etc/group /etc/group
 WORKDIR /
 
 # Copy our build
-COPY --from=builder /my_worker/target/x86_64-unknown-linux-musl/release/my_worker ./
+COPY --from=builder /my-worker/target/x86_64-unknown-linux-musl/release/my-worker ./
 
 # Use an unprivileged user.
-USER my_worker:my_worker
+USER my-worker:my-worker
 
-CMD ["/my_worker/my_worker"]
+CMD ["/my-worker/my-worker"]
 

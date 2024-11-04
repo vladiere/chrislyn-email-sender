@@ -1,5 +1,5 @@
 use axum::{routing::get, Json, Router};
-use my_worker::{core_config, email, error::Result, routes_static};
+use my_worker::{core_config, email, error::Result};
 use tracing::info;
 use serde_json::{json, Value};
 use tracing_subscriber::EnvFilter;
@@ -14,8 +14,8 @@ async fn main() -> Result<()> {
 
     let routes_all = Router::new()
         .route("/", get(greetings))
-        .merge(email::routes())
-        .fallback_service(routes_static::serve_dir());
+        .merge(email::routes());
+        // .fallback_service(routes_static::serve_dir())
 
     let listener = tokio::net::TcpListener::bind(format!("{}:{}", &core_config().SERVER_HOST, &core_config().SERVER_PORT)).await.unwrap();
     

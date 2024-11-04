@@ -1,7 +1,7 @@
 mod config;
 
 pub mod email;
-pub mod routes_static;
+// pub mod routes_static;
 pub mod error;
 pub use config::core_config;
 
