@@ -1,7 +1,7 @@
 ####################################################################################################
 ## Builder
 ####################################################################################################
-FROM rust:latest AS builder
+FROM rust:nightly AS builder
 
 # Set up the musl target for static linking
 RUN rustup target add x86_64-unknown-linux-musl
